@@ -1,0 +1,25 @@
+# Any FPNN target server's protocol add following field:
+# ('$' is a part of field name.)
+#
+# MUST fields:
+# ---------------------------------
+# $serverName: %s
+# $routingKind: %s (carp, consistency, random, rotatory)
+# 
+# if $routingKind == carp, MUST included one of following fields:
+#     $hintId: %d
+#     $hintString: %s
+#
+#     if both $hintId & $hintString appeared, only $hintId is parsed, $hintString will be ingored.
+#
+# if $routingKind == consistency, MUST included field $consistencyCondition: %s (all, anyOne, moreThanHalf, count)
+# if $consistencyCondition == count, MUST include field $consistencyCount: %d
+#
+# OPTIONAL fields:
+# ---------------------------------
+# $method: %d
+# using this field to change the method name. for example: if you want to send fpnn framework internal commands, such as *tune.
+#
+# $timeout:
+# Timeout in seconds.
+#

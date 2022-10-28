@@ -1,0 +1,30 @@
+Universal Gate v2 API
+
+* 双 FPZK，一内一外。外 FPZK 可选。
+* 增加 oldest、 broadcast 两个 proxy
+* 到接口级别的限制
+* 允许默认访问
+	默认访问使用配置表：
+		{
+			"interface namse": {
+				"server name":"xxx",
+				"proxy type":"roto, or randam, or brocast, or oldest, or cap with key name and type (int/string)"
+			}
+		}
+
+* 配置增加 DBProxy 方式
+* 增加动态刷新接口
+
+*配置文件修改
+
+UG.<serverName>.allowInterface = aa,bb,cc,...
+UG.<serverName>.bindConnection = false		# 一对一链接绑定
+
+UG.default.interface = 
+UG.default.interface.serverName =
+UG.default.interface.proxyType = 
+UG.default.interface.carpKey =
+UG.default.interface.carpKey.type = #int, string 
+UG.default.interface.consistencyCondition = 
+UG.default.interface.consistencyCount =
+UG.default.interface.timeout =
